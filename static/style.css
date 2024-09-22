@@ -1,0 +1,251 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #212121;
+    color: #fff;
+    font-family: monospace, serif;
+    letter-spacing: 0.05em;
+    margin-left: 260px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  h1 {
+    font-size: 23px;
+  }
+  
+  .form {
+    width: 300px;
+    padding: 64px 15px 24px;
+    margin: 0 auto;
+  }
+  .form .control {
+    margin: 0 0 24px;
+  }
+  .form .control input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-family: monospace, serif;
+    letter-spacing: 0.05em;
+    font-size: 16px;
+  }
+  .form .control input:hover, .form .control input:focus {
+    outline: none;
+    border: 0;
+  }
+  .form .btn {
+    width: 100%;
+    display: block;
+    padding: 14px 16px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    font-family: monospace, serif;
+    font-size: 16px;
+  }
+  
+  .block-cube {
+    position: relative;
+  }
+  .block-cube .bg-top {
+    position: absolute;
+    height: 10px;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg, 0);
+    margin: 0;
+  }
+  .block-cube .bg-top .bg-inner {
+    bottom: 0;
+  }
+  .block-cube .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+  }
+  .block-cube .bg-right {
+    position: absolute;
+    background: #020024;
+    background: #00d4ff;
+    top: -5px;
+    z-index: 0;
+    bottom: 5px;
+    width: 10px;
+    left: 100%;
+    transform: skew(0, -45deg);
+  }
+  .block-cube .bg-right .bg-inner {
+    left: 0;
+  }
+  .block-cube .bg .bg-inner {
+    transition: all 0.2s ease-in-out;
+  }
+  .block-cube .bg-inner {
+    background: #212121;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+  }
+  .block-cube .text {
+    position: relative;
+    z-index: 2;
+  }
+  .block-cube.block-input input {
+    position: relative;
+    z-index: 2;
+  }
+  .block-cube.block-input input:focus ~ .bg-right .bg-inner, .block-cube.block-input input:focus ~ .bg-top .bg-inner, .block-cube.block-input input:focus ~ .bg-inner .bg-inner {
+    top: 100%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  .block-cube.block-input .bg-top,
+  .block-cube.block-input .bg-right,
+  .block-cube.block-input .bg {
+    background: rgba(255, 255, 255, 0.5);
+    transition: background 0.2s ease-in-out;
+  }
+  .block-cube.block-input .bg-right .bg-inner,
+  .block-cube.block-input .bg-top .bg-inner {
+    transition: all 0.2s ease-in-out;
+  }
+  .block-cube.block-input:focus .bg-top,
+  .block-cube.block-input:focus .bg-right,
+  .block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,
+  .block-cube.block-input:hover .bg-right,
+  .block-cube.block-input:hover .bg {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+    top: 100%;
+  }
+  
+  .credits {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 15px 15px;
+    width: 100%;
+    z-index: 111;
+  }
+  .credits a {
+    opacity: 0.6;
+    color: #fff;
+    font-size: 11px;
+    text-decoration: none;
+  }
+  .credits a:hover {
+    opacity: 1;
+  }
+
+a {
+    color: white; /* Cor do link padrão */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+a:visited {
+    color: white; /* A cor do link após ser clicado continua a mesma */
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 250px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: auto; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: monospace, serif;
+    color: #c0bebe;
+    display: block;
+  }
+
+  .sidenav form#Sair {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: monospace, serif;
+    color: #c0bebe;
+    display: block; /* Manter o formulário na mesma linha */
+}
+
+/* Estilo do botão que parece um link */
+.sidenav form#Sair button {
+    background: none;
+    border: none;
+    color: #c0bebe; /* Cor consistente com os links */
+    text-decoration: none; /* Texto sublinhado */
+    cursor: pointer; /* Cursor de ponteiro */
+    padding: 0; /* Sem padding para manter o layout */
+    font-size: 25px; /* Mesma fonte que os links */
+    font-family: monospace, serif;
+}
+
+/* Hover effect para o botão de logout */
+.sidenav form#Sair button:hover {
+    color: #f1f1f1; /* Cor ao passar o mouse, para um efeito visual */
+}
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 260px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .resultado-table {
+    border-collapse: collapse;
+    margin: 20px;
+    width: 100%;
+}
+
+.resultado-table th, .resultado-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.resultado-table th {
+    background-color: #f2f2f2;
+}
+
+.resultado-table .row1 {
+    background-color: #fff;
+}
+
+.resultado-table .row2 {
+    background-color: #f9f9f9;
+}

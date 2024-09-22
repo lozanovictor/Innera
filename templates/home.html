@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Pagina Inicial{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div class="sidenav">
+   <br>
+   <br>
+   <a href="{% url 'questionario' %}">Questionário do sono</a>
+   <br>
+   <a href="{% url 'password_change' %}">Alterar a senha</a>
+   <br>
+   <form action="{% url 'logout' %}" method="post" id="Sair" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit">
+          Sair
+      </button>
+  </form>
+</div>
+
+<div class="body">
+ {% csrf_token %}
+ <h1>Bem-vindo, {{ user.first_name }}!</h1>  
+ <br>
+ <br>
+ 
+ </div>
+
+ <div class="body">
+ <h2>Resultados</h2>
+
+ <table border="1" class="resultado-table">
+   <thead>
+       <tr>
+           <th scope="col">Data</th>
+           <th scope="col">Resultado</th>
+       </tr>
+   </thead>
+   <tbody>
+       {% if resultado %}
+           {% for questionario in questionarios %}
+           <tr class="{% cycle 'row1' 'row2' %}">
+               <td>{{ questionario.data_hora }}</td>
+               <td>{{ questionario.resultado }}</td>
+           </tr>
+           {% endfor %}
+       {% else %}
+           <tr>
+               <td colspan="2">Nenhum questionário preenchido.</td>
+           </tr>
+       {% endif %}
+   </tbody>
+</table>
+</div>
+<br>
+ 
+<div class="body">
+   <h1>Evolução do Usuário</h1>
+    <img src="data:image/png;base64,{{ img_str }}" alt="Gráfico de Resultados" />
+</div>
+{% else %}
+
+<div class="body">
+   <p>Você não está logado!</p>
+   <br>
+
+   <a href="{% url 'login' %}">Faça login</a> 
+
+   <br>
+
+   <a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
+   <br>
+
+   <a href="{% url 'signup' %}">Cadastre-se</a>
+</div>
+{% endif %}
+
+{% endblock %}
